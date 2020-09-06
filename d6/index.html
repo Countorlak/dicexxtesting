@@ -5,43 +5,42 @@
 
 <html lang="en">
     <head>
-        <!-- Page info -->
-        <meta charset="UTF-8" />
-        <meta name="author" content="Chris Vought" />
-        <meta name="description" content="Six sided die rolling page." />
-        <!-- External JS and styles. -->
-        <!-- JQuery must be first. -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
-        <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
-        <!-- Internal JS -->
-        <script src="../js/attachNodes.js"></script>
-        <script src="/js/jquery.scrollTo.min.js"></script>
-        <!-- Style sheets -->
-        <link rel="stylesheet" href="../styles/projectStyles.css" type="text/css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Browser tab content -->
         <title>Roll that D6!</title>
         <link rel="icon" href="../img/favicon.ico" />
-
+        <!-- Page Metainformation -->
+        <meta name="description" content="Six sided die rolling. Generate a random number from 1 through 6 in a way you meat-bag humans might like." /> 
+		<meta name="keywords" content="dice,six sided die, random number generator"> 
+        <meta charset="UTF-8" />
+        <meta name="author" content="Chris Vought" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Dependencies. -->
+        <script src="../js/jquery-3.5.1.min.js"></script>
+        <script src="../js/jquery.scrollTo.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+		<link rel="stylesheet" href="../styles/bootstrap.min.css">
+		<script src="../js/bootstrap.min.js"></script>
+		<link href="../styles/bootstrap-toggle.min.css" rel="stylesheet">
+		<script src="../js/bootstrap-toggle.min.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+        <!-- Internal Styles -->
+        <link rel="stylesheet" href="../styles/site.css" type="text/css" />
     </head>
+	
     <body>
+		<!-- Primary Navigation and Controls -->
         <nav class="navBar">
-            <a class="navBarBtn" href="/index.html">Home</a>
-            <a class="navBarBtn" href="/d5/index.html">D5</a>
-            <a class="navBarBtn" href="/d6/index.html">D6</a>
-            <a class="navBarBtn" href="/d10/index.html">D10</a>
+            <a class="navBarBtn" href="../index.html">Home</a>
+            <!-- <a class="navBarBtn" href="../d5/index.html">D5</a> -->
+            <a class="navBarBtn" href="../d6/index.html">D6</a>
+            <!-- <a class="navBarBtn" href="../d10/index.html">D10</a> -->
         </nav>
         <div class="controlBarLeft col-1">
             <div id="totalDiv">
                 <h3 id="totalHeading">█</h3>
-                <!--<hr/>-->
                 <span id="totalSpan">Total</span>
             </div>
             <div id="dieToolbar" class="btn-group-vertical" role="toolbar" aria-label="">
-                <button type="button" class="btn btn-warning controlBtn" onclick="resetTotal();">Reset</button>
+                <button type="checkbox" class="btn btn-warning controlBtn" onclick="resetTotal();" data-toggle="toggle">Reset</button>
                 <button type="button" id="Roll" class="btn btn-primary controlBtn" onclick="rollNow();">Roll</button>
                 <button type="button" id="Play" class="btn btn-success controlBtn" onclick="startRolling();">Play</button>
                 <button type="button" id="Stop" class="btn btn-warning controlBtn" onclick="stopNow();">Stop</button>
@@ -50,24 +49,25 @@
         </div>
 
 
-        <!-- This is also the template in the js logic for all other dieholder divs. -->
+        <!-- Also the template in the js logic for all other dieholder divs. -->
         <ul id="dieUL" class="list-group dieHolder">
-            <li id="originLI" class="dieLI list-group-item"><span class="badge">_</span><img class="dieListImg" src="img/pauseBars_steelBlue.svg" alt="1" onclick="toggleAutoRoll();"><h3>Paused</h3></li>
+            <li id="originLI" class="dieLI list-group-item"><span class="badge badge-pill badge-dark">_</span><img class="dieListImg" src="img/pauseBars_steelBlue.svg" alt=""><h3 class="rollText">Paused</h3></li>
         </ul>
-
 
         <!-- Help Modal -->
         <div id="helpModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
-                <!-- Modal content-->
+                <!-- Modal Heading -->
                 <div class="modal-content">
-
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Need Help?</h4>
+                        <button type="button" class="close" data-dismiss="modal" >
+							<span aria-hidden="true">&times;</span>
+						</button>
                     </div>
 
+					<!-- Modal Content -->
                     <div class="modal-body">
                         <ul>
                             <li>Stop - Stops the timer for automatic rolls.</li>
@@ -77,7 +77,8 @@
                         </ul>
                         <p>You can also click the die at the top to toggle Play and Pause of the timed die rolls.</p>
                     </div>
-
+					
+					<!-- Modal Footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
@@ -85,13 +86,16 @@
             </div>
         </div>
 
-        
-        <div id="toTop"><i class="fas fa-arrow-alt-circle-up"></i></div>
+
+        <div id="toTop"><button  alt="Scroll to top" onclick="scrollToTop()" class="iconBtn"><i class="fas fa-arrow-alt-circle-up"></i><span>&nbsp;Return To Top&nbsp;</span><i class="fas fa-arrow-alt-circle-up"></i></button></div>
         <footer>
             <div class="navbar-inverse" role="navigation">
                 <address>&copy; 2016 <a href="https://github.com/Countorlak">Chris Vought</a>. All Rights Reserved.</address>
-                <br/><br/><br/><br/>
+                <br/><br/><br/>
             </div>
         </footer>
+	
+		<!-- Internal JS -->  
+		<script src="../js/dice.js"></script>
     </body>
 </html>

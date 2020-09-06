@@ -1,0 +1,188 @@
+/* Dice page styles. */
+/* by Chris Vought */
+
+
+html {
+    background-color: gray;
+    background-color: rgba(90, 90, 90, 0.8);
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+body {
+	margin: 0;
+    padding-bottom: 1px;
+    background-color: black;
+    background-color: #1d3a5e;
+	background-image: url("../img/black-linen.png");
+}
+
+footer {
+    background-color: #151515;
+    color: #fdfdfd;
+    position: static;
+}
+
+img {
+    padding: 2px;
+}
+
+address {
+    float: right;
+    margin-right: 1em;
+}
+
+
+/* Nav */
+.navBar {
+    top: 10px;
+    background-color: #bbbbbb;
+}
+
+.navBarBtn {
+    background-color: teal;	
+    background-color: rgba(173, 216, 230, 0.66);
+    margin: 5px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12), 0 3px 7px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    top: 5px;
+    padding: 0.8%;
+    font-size: medium;
+}
+
+.navBarBtn:hover {
+    background-color: white;
+    transition: background-color 1s cubic-bezier(.1, .25, .6, 1.0) 250ms;
+}
+
+#toTop {
+	color: #ddb;
+	background-color: black;
+	text-align: center;
+	border-radius: .3em;
+	margin: 1em;
+	font-weight: bolder;
+	font-size: 2em;
+}
+
+.iconBtn {
+	border: unset;
+	background-color: unset;
+	color: #ddb;
+}
+
+/* Nav: unused */
+
+
+/* Controls */
+.controlBarLeft {
+    float: left;
+    position: fixed;    
+}
+
+/* Controls: unused */
+.btn {}
+.controlBtn {}
+#Play {}
+
+
+/* Content */
+.pageItem {
+    margin: 4%;
+    padding: 5%;
+    border: slategrey solid thick;
+    border-radius: 12px;
+}
+
+.dieHolder {
+    display: block;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+#dieUL{
+    color: #222;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: .6em .6em .4em .2em rgba(0, 0, 0, 0.3);
+}
+
+.dieListImg {
+    height: 60%;
+    width: 60%;
+}
+
+.dieLI {
+    background-color: white !important;
+    background-color: rgb(240,240,210) !important;
+    background-image: url("../img/embossed-paper.png");
+}
+
+.modal {
+    color:#222;
+}
+
+li > span.badge-pill {
+	float: right;
+}
+
+.rollText {
+	text-align: center;
+	background-color: rgba(0, 40, 85, 0.73584906);
+	color: white;
+	border-radius: .2em;
+	margin-top: .5em;
+}
+
+/* Content: unused */
+#originLI {}
+#dieToolbar {}
+
+
+/* Counter */
+#totalDiv {
+    width: auto;
+    margin-bottom: 15%;    
+    margin-left: 40%;
+}
+
+#totalHeading {
+    text-decoration: underline;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#totalSpan {
+	color: #ddb;
+    font-size: medium;
+	font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Helper Classes */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.centerText {
+	text-align: center;
+}
