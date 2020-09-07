@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <!-- Six sided die page. -->
 <!-- by Chris Vought -->
@@ -42,8 +43,18 @@
             <div id="dieToolbar" class="btn-group-vertical" role="toolbar" aria-label="">
                 <button type="checkbox" class="btn btn-warning controlBtn" onclick="resetTotal();" data-toggle="toggle">Reset</button>
                 <button type="button" id="Roll" class="btn btn-primary controlBtn" onclick="rollNow();">Roll</button>
-                <button type="button" id="Play" class="btn btn-success controlBtn" onclick="startRolling();">Play</button>
-                <button type="button" id="Stop" class="btn btn-warning controlBtn" onclick="stopNow();">Stop</button>
+                <!-- <input type="checkbox" id="Play" class="" data-toggle="toggle" data-on="Playing" data-off="Stop" onclick="autoRollCheck();">Play</button> -->
+                <div>
+					<label class="toggle">
+						<input type="checkbox" name="autoroll" id="Play" class="" onclick="autoRollCheck();" value="Play" />
+						<span class="slider"></span>
+					</label>					
+					<!-- <label class=""> -->
+						<!-- <input type="radio" name="autoroll" id="Stop" class="" onclick="stopNow();" value="Play" />	 -->
+						<!-- <span class="slider"></span>				 -->
+					<!-- </label>	 -->
+				</div>
+				<!-- <button type="button" id="Stop" class="btn btn-warning controlBtn" onclick="stopNow();">Stop</button> -->
                 <button type="button" class="btn btn-info controlBtn" data-toggle="modal" data-target="#helpModal">?</button>
             </div>
         </div>
@@ -75,7 +86,6 @@
                             <li>Play - Starts the automatic rolls on a 5 second timer.</li>
                             <li>Reset - Sets the running total counter to 0.</li>
                         </ul>
-                        <p>You can also click the die at the top to toggle Play and Pause of the timed die rolls.</p>
                     </div>
 					
 					<!-- Modal Footer -->

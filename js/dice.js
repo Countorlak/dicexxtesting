@@ -13,14 +13,13 @@
 // All other LI nodes for die rolls are to be created by this file.
 
 var rollCurrent;
-var TAG_BR = "<br/>";
-var TAG_HR = "<hr/>";
 var rollTrack = ["Start"]; // Tracks all output for JSON.
 var rollTotal = 0;
 var timing; // Timer from rollNow() needs global scope. 
 var ROLLTIME = 5000;
-// These "constants" are purely relative to the document.
+
 var ORIGIN_LI = document.getElementById("originLI");
+var TOGGLE_PLAY = document.getElementById("Play");
 var PAUSE_SVG = "img/pauseBars_steelBlue.svg";
 var STOP_SVG = "img/pauseBars_steelBlue.svg";
 
@@ -115,6 +114,12 @@ function rollNow(){
     
     buildRollLiNode(rollCurrent);
 	scrollToBottom();
+}
+
+// Input for auto-rolling is a bootstrap-toggle. It neeeds to be checked then handled appropriately.
+function autoRollCheck() {	
+	if (TOGGLE_PLAY.getAttribute("checked")) {startRolling();}
+	else {stopNow();}	
 }
 
 // Stop timer and append stop <li> to list of rolls.
