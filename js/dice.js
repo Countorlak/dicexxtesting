@@ -15,8 +15,8 @@
 var rollCurrent;
 var rollTrack = ["Start"]; // Tracks all output for JSON.
 var rollTotal = 0;
-var timing; // Timer from rollNow() needs global scope. 
-var ROLLTIME = 5000;
+var timing; // Timer for auto-rolling. 
+var ROLLTIME = 5000; // 5 seconds
 
 var ORIGIN_LI = document.getElementById("originLI");
 var TOGGLE_PLAY = document.getElementById("Play");
@@ -93,14 +93,27 @@ function displayTotal(totalNow) {
     document.getElementById("totalHeading").textContent = totalNow;
 }
 
+// TODO: Fix scrolling for landscape view. It seems to go too far.
 function scrollToBottom() {	
-	$.scrollTo(Number.MAX_SAFE_INTEGER, 0);
+// Calculate height from document bottom on last die roll.
+	var heightTo_LastRoll = $("#toTop").height() + $("footer").height() + $("#dieUL").height();
+	window.scrollTo(0, heightTo_LastRoll);
 }
 
-function scrollToTop(){
-    // Safari - scroll to top.
+function altScrollToBottom() {	
+// Calculate height from document bottom on last die roll.
+	var heightTo_LastRoll = $("#toTop").height() + $("footer").height() + $("#dieUL").height();
+    // Safari
     document.body.scrollTop = 0;
-    // Scroll to top on all other browsers.
+    // All other browsers.
+    document.documentElement.scrollTop = 0;
+}
+
+// Has an alternate way to scroll in case one of them happens across a bug again.
+function scrollToTop(){
+    // Safari
+    document.body.scrollTop = 0;
+    // All other browsers.
     document.documentElement.scrollTop = 0;
 }
 

@@ -35,6 +35,7 @@
             <a class="navBarBtn" href="../d6/index.html">D6</a>
             <!-- <a class="navBarBtn" href="../d10/index.html">D10</a> -->
         </nav>
+		<!-- TODO: Tone the colors down a notch. I need earplugs to look at it. -->
         <div class="controlBarLeft">
             <div id="totalDiv">
                 <h3 id="totalHeading">█</h3>
@@ -42,7 +43,10 @@
             <div id="dieToolbar" class="btn-group-vertical" role="toolbar" aria-label="">
                 <button type="checkbox" class="btn btn-warning controlBtn" onclick="resetTotal();" data-toggle="toggle">Reset</button>
                 <button type="button" id="Roll" class="btn btn-primary controlBtn" onclick="rollNow();">Roll</button>
-                <input type="checkbox" id="togglePlay" onclick="autoRollCheck()" data-toggle="toggle" data-on="Play" data-off="Stop" data-offstyle="outline-success" data-onstyle="outline-warning"/>
+				<!-- Work around for bootstrap4-toggle. -->
+				<div id="toggleWrapper" onclick="autoRollCheck();">					
+					<input type="checkbox" id="togglePlay" onclick="autoRollCheck()" data-toggle="toggle" data-style="noRadius" data-on="Play" data-off="Stop" data-onstyle="outline-success" data-offstyle="outline-warning"/>
+				</div>
 				<button type="button" class="btn btn-info controlBtn" data-toggle="modal" data-target="#helpModal">?</button>
             </div>
             </div>
