@@ -118,8 +118,16 @@ function rollNow(){
 
 // Input for auto-rolling is a bootstrap-toggle. It neeeds to be checked then handled appropriately.
 function autoRollCheck() {	
-	if (TOGGLE_PLAY.getAttribute("checked")) {startRolling();}
-	else {stopNow();}	
+	if (document.getElementById("togglePlay").checked) {
+		startRolling();
+		console.log("autoRollCheck started autorolling");
+	}
+	else {
+		stopNow();
+		console.log("autoRollCheck stopped autorolling");
+	}	
+	
+	console.log("autoRollCheck Finished");
 }
 
 // Stop timer and append stop <li> to list of rolls.
@@ -134,7 +142,9 @@ function stopNow(){
 
 // This function builds a roll's LI node that's similar to the following example:
 // <li class="dieLI list-group-item"><span class="badge">x</span><img class="dieListImg" src="img/pauseBars_steelBlue.svg" alt="x"><h3>1:19:39 AM&nbsp;&nbsp;&nbsp;&nbsp;Sun Oct 02 2016</h3></li>
-function buildStopLiNode(){
+function buildStopLiNode(){	
+    var rollCount = rollTrack.length - 1;
+
     console.log("buildStopLiNode - begin");
     // Create all nodes one at a time.
     // LI node - creation

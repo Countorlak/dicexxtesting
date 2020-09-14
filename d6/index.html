@@ -42,10 +42,8 @@
             <div id="dieToolbar" class="btn-group-vertical" role="toolbar" aria-label="">
                 <button type="checkbox" class="btn btn-warning controlBtn" onclick="resetTotal();" data-toggle="toggle">Reset</button>
                 <button type="button" id="Roll" class="btn btn-primary controlBtn" onclick="rollNow();">Roll</button>
-                <input type="checkbox" data-toggle="toggle" data-on="Play" data-off="Stop" data-offstyle="outline-success" data-onstyle="outline-warning"/>
-				<!-- <input type="checkbox" id="Play" class="" data-toggle="toggle" data-on="Playing" data-off="Stop" onclick="autoRollCheck();">Play</button> -->
-                <!-- <button type="button" id="Stop" class="btn btn-warning controlBtn" onclick="stopNow();">Stop</button> -->
-                <button type="button" class="btn btn-info controlBtn" data-toggle="modal" data-target="#helpModal">?</button>
+                <input type="checkbox" id="togglePlay" onclick="autoRollCheck()" data-toggle="toggle" data-on="Play" data-off="Stop" data-offstyle="outline-success" data-onstyle="outline-warning"/>
+				<button type="button" class="btn btn-info controlBtn" data-toggle="modal" data-target="#helpModal">?</button>
             </div>
             </div>
         </div>
